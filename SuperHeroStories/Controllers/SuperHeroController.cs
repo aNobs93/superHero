@@ -25,7 +25,8 @@ namespace SuperHeroStories.Controllers
         // GET: SuperHero/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            SuperHero superHero = context.People.Find(id);
+            return View(superHero);
         }
 
         // GET: SuperHero/Create
