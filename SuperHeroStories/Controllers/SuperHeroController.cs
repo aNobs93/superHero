@@ -65,8 +65,9 @@ namespace SuperHeroStories.Controllers
         {
             try
             {
+
                 // TODO: Add update logic here
-                SuperHero superHeroToUpdate = context.People.SingleOrDefault(s => s.Id == superHero.Id);
+                SuperHero superHeroToUpdate = context.People.Find(id);
                 superHeroToUpdate.AlterEgo = superHero.AlterEgo;
                 superHeroToUpdate.CatchPhrase = superHero.CatchPhrase;
                 superHeroToUpdate.PrimaryAbility = superHero.PrimaryAbility;
@@ -84,18 +85,20 @@ namespace SuperHeroStories.Controllers
         // GET: SuperHero/Delete/5
         public ActionResult Delete(int id)
         {
-            SuperHero superHero = context.People.Where(e => e.Id == id).FirstOrDefault();
+            SuperHero superHero = context.People.Find(id);
             return View(superHero);
         }
 
         // POST: SuperHero/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, SuperHero superHero)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                SuperHero super = context.People.Find(id);
+                context.People.Remove(super);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
