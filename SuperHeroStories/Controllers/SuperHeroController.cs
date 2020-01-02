@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperHeroStories.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,12 +24,13 @@ namespace SuperHeroStories.Controllers
         // GET: SuperHero/Create
         public ActionResult Create()
         {
-            return View();
+            SuperHero superhero = new SuperHero();
+            return View(superhero);
         }
 
         // POST: SuperHero/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(SuperHero superHero)
         {
             try
             {

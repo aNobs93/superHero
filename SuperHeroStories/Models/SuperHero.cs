@@ -8,10 +8,10 @@ namespace SuperHeroStories.Models
     public class SuperHero
     {
         public int Id { get; set; }
-        public string superHeroName { get; set; }
-        public string alterEgoName { get; set; }
-        public string primaryAbility { get; set; }
-        public string secondaryAbility { get; set; }
-        public string catchPhrase { get; set; }
+        public string SuperHeroName { get; set; }
+        public string AlterEgo { get; set; }
+        public string PrimaryAbility { get; set; }
+        public string SecondaryAbility { get; set; }
+        public string CatchPhrase { get; set; }
     }
 }
